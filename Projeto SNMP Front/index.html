@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitor de Interface MikroTik</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Seu CSS aqui (mantido igual ao que você já tinha) */
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const MAX_DATA_POINTS = 30;
+        const POLLING_INTERVAL_MS = 3000;
+        const API_URL = 'http://localhost:3002/api/traffic';
+
+        function formatBytes(bytesInput, decimals = 2, inBits = false) {
+            const bytes = Number(bytesInput);
+            if (isNaN(bytes) || bytes === 0) return `0 ${inBits ? 'bps' : 'Bps'}`;
+
+            const k = 1000;
+            const dm = decimals < 0 ? 0 : decimals;
+            const sizes = inBits ? ['bps', 'Kbps', 'Mbps', 'Gbps', 'Tbps'] : ['Bps', 'KBps', 'MBps', 'GBps', 'TBps'];
+
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            const validIndex = Math.max(0, Math.min(i, sizes.length - 1));
+            return parseFloat((bytes / Math.pow(k, validIndex)).toFixed(dm)) + ' ' + sizes[validIndex];
+        }
+
+        function TrafficChart() {
+            const chartRef = React.useRef(null);
+            const [chartInstance, setChartInstance] = React.useState(null);
+            const [currentInSpeed, setCurrentInSpeed] = React.useState(0);
+            const [currentOutSpeed, setCurrentOutSpeed] = React.useState(0);
+            const [unit, setUnit] = React.useState('bits');
+            const [statusMessage, setStatusMessage] = React.useState({ text: 'Carregando dados...', type: 'loading' });
+
+            React.useEffect(() => {
+                if (chartRef.current) {
+                    const ctx = chartRef.current.getContext('2d');
+                    const newChartInstance = new Chart(ctx, {
+                        type: 'line',
+                        data: {
+                            labels: Array(MAX_DATA_POINTS).fill(''),
+                            datasets: [
+                                {
+                                    label: 'Entrada (bps)',
+                                    data: Array(MAX_DATA_POINTS).fill(0),
+                                    borderColor: 'rgb(54, 162, 235)',
+                                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                                    tension: 0.3,
+                                    fill: true,
+                                },
+                                {
+                                    label: 'Saída (bps)',
+                                    data: Array(MAX_DATA_POINTS).fill(0),
+                                    borderColor: 'rgb(255, 99, 132)',
+                                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                                    tension: 0.3,
+                                    fill: true,
+                                }
+                            ]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: true,
+                            scales: {
+                                y: {
+                                    beginAtZero: true,
+                                    ticks: {
+                                        callback: function(value) {
+                                            return formatBytes(value, 2, unit === 'bits');
+                                        }
+                                    }
+                                },
+                                x: {
+                                    ticks: {
+                                        autoSkip: true,
+                                        maxTicksLimit: 10
+                                    }
+                                }
+                            },
+                            animation: {
+                                duration: 200
+                            }
+                        }
+                    });
+                    setChartInstance(newChartInstance);
+                }
+                return () => {
+                    if (chartInstance) {
+                        chartInstance.destroy();
+                    }
+                };
+            }, []);
+
+            React.useEffect(() => {
+                if (chartInstance) {
+                    const newUnitLabel = unit === 'bits' ? 'bps' : 'Bps';
+                    chartInstance.data.datasets[0].label = `Entrada (${newUnitLabel})`;
+                    chartInstance.data.datasets[1].label = `Saída (${newUnitLabel})`;
+                    chartInstance.options.scales.y.ticks.callback = function(value) {
+                        return formatBytes(value, 2, unit === 'bits');
+                    };
+                    chartInstance.update('none');
+                }
+            }, [unit, chartInstance]);
+
+            React.useEffect(() => {
+                if (!chartInstance) return;
+
+                const interval = setInterval(async () => {
+                    try {
+                        const response = await fetch(API_URL);
+                        const data = await response.json();
+
+                        const displayIn = unit === 'bits' ? data.inBitsPerSecond : data.inBytesPerSecond;
+                        const displayOut = unit === 'bits' ? data.outBitsPerSecond : data.outBytesPerSecond;
+
+                        setCurrentInSpeed(displayIn || 0);
+                        setCurrentOutSpeed(displayOut || 0);
+
+                        const now = new Date();
+                        const timeLabel = now.toLocaleTimeString();
+
+                        // Atualizar dados
+                        chartInstance.data.labels.push(timeLabel);
+                        chartInstance.data.datasets[0].data.push(displayIn);
+                        chartInstance.data.datasets[1].data.push(displayOut);
+
+                        // Remover excedente
+                        if (chartInstance.data.labels.length > MAX_DATA_POINTS) {
+                            chartInstance.data.labels.shift();
+                            chartInstance.data.datasets[0].data.shift();
+                            chartInstance.data.datasets[1].data.shift();
+                        }
+
+                        chartInstance.update();
+                        setStatusMessage({ text: 'Dados atualizados.', type: 'info' });
+
+                    } catch (error) {
+                        setStatusMessage({ text: 'Erro ao buscar dados: ' + error.message, type: 'error' });
+                    }
+                }, POLLING_INTERVAL_MS);
+
+                return () => clearInterval(interval);
+            }, [chartInstance, unit]);
+
+            return (
+                <div>
+                    <h1>Monitor de Interface MikroTik</h1>
+
+                    <div className="controls">
+                        <label>Unidade:</label>
+                        <select value={unit} onChange={(e) => setUnit(e.target.value)}>
+                            <option value="bits">Bits por segundo</option>
+                            <option value="bytes">Bytes por segundo</option>
+                        </select>
+                    </div>
+
+                    <div className="stats-container">
+                        <div className="stat-item">
+                            <p>Entrada</p>
+                            <span>{formatBytes(currentInSpeed, 2, unit === 'bits')}</span>
+                        </div>
+                        <div className="stat-item">
+                            <p>Saída</p>
+                            <span>{formatBytes(currentOutSpeed, 2, unit === 'bits')}</span>
+                        </div>
+                    </div>
+
+                    <div className="chart-container">
+                        <canvas ref={chartRef}></canvas>
+                    </div>
+
+                    {statusMessage.text && (
+                        <div className={`status-message ${statusMessage.type}`}>
+                            {statusMessage.text}
+                        </div>
+                    )}
+                </div>
+            );
+        }
+
+        ReactDOM.render(<TrafficChart />, document.getElementById('root'));
+    </script>
+</body>
+</html>
