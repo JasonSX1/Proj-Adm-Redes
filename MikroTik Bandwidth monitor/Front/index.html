@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mikrotik Bandwidth Monitor</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <div class="monitor-container">
+        <header class="monitor-header">
+            <h1>Mikrotik Bandwidth Monitor</h1>
+            <div class="header-info">
+                <span id="hostname">IP/Hostname: --</span>
+                <span id="interface-name">Interface: --</span>
+            </div>
+        </header>
+
+        <main class="monitor-main">
+            <div class="chart-container">
+                <canvas id="trafficChart"></canvas>
+            </div>
+
+            <div class="counters-container">
+
+                <div class="counter-card tx-card">
+                    <span class="counter-label">Upload (Tx)</span>
+                    <div class="counter-value">
+                        <span id="tx-value">0</span>
+                        <span id="tx-unit">bps</span>
+                    </div>
+                </div>
+                                <div class="counter-card rx-card">
+                    <span class="counter-label">Download (Rx)</span>
+                    <div class="counter-value">
+                        <span id="rx-value">0</span>
+                        <span id="rx-unit">bps</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="monitor-footer">
+            <button id="toggle-button">Pausar</button>
+            <div class="status-info">
+                <span>Status: <strong id="status-text">Conectando...</strong></span>
+                <span>Última leitura: <strong id="last-update-time">--:--:--</strong></span>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
