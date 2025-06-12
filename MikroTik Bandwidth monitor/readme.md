@@ -109,8 +109,9 @@ Para te ajudar, aqui está um tutorial em vídeo que mostra o passo a passo da i
 1.  Abra o arquivo `Front/index.html` diretamente no seu navegador de preferência (Google Chrome, Firefox, etc.).
 2.  Para uma melhor experiência de desenvolvimento, você pode usar a extensão **Live Server** no Visual Studio Code.
 
-## 👤 Autor
+## 👤 Autores
 
 * **Geison de Oliveira Lemos Ferreira** - [JasonSX1](https://github.com/JasonSX1)
+* **Caroline dos Santos Feitosa** - [carolinesantosf](https://github.com/carolinesantosf)
 
 ---
