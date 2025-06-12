@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
         lastUpdateTimeElem.textContent = new Date().toLocaleTimeString();
 
         const timestamp = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
-        // ✨ ATUALIZAÇÃO: Converte os dados para Kbps para o gráfico
+        // Converte os dados para Kbps para o gráfico
         addDataToChart(timestamp, data.inBitsPerSecond / 1000, data.outBitsPerSecond / 1000);
     }
 
@@ -171,7 +171,7 @@ document.addEventListener('DOMContentLoaded', () => {
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
-                // ✨ ATUALIZAÇÃO: Melhora a interação do tooltip (caixa de informações)
+                // Melhora da interação do tooltip (caixa de informações)
                 interaction: {
                     mode: 'index',
                     intersect: false,
@@ -181,7 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         beginAtZero: true,
                         title: {
                             display: true,
-                            // ✨ ATUALIZAÇÃO: Título do eixo para Kbps
+                            // Título do eixo para Kbps
                             text: 'Kbps'
                         },
                          ticks: { color: 'white' },
