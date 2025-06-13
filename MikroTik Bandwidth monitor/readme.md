@@ -112,6 +112,6 @@ Para te ajudar, aqui está um tutorial em vídeo que mostra o passo a passo da i
 ## 👤 Autores
 
 * **Geison de Oliveira Lemos Ferreira** - [JasonSX1](https://github.com/JasonSX1)
-* **Caroline dos Santos Feitosa** - [carolinesantosf](https://github.com/carolinesantosf)
+* **Caroline Feitosa dos Santos ** - [carolinesantosf](https://github.com/carolinesantosf)
 
 ---
