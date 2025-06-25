@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     // --- Configurações ---
     const API_BASE_URL = 'http://localhost:3002'; // URL do back
-    const POLLING_INTERVAL = 2000; // Intervalo de busca em milissegundos (ex: 2000ms = 2 segundos)
+    const POLLING_INTERVAL = 1000; // Intervalo de busca em milissegundos (ex: 2000ms = 2 segundos)
     const MAX_DATA_POINTS = 30; // Máximo de pontos de dados a serem exibidos no gráfico
 
     // --- Elementos da DOM ---
