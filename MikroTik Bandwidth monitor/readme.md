@@ -5,7 +5,7 @@ Este projeto consiste em uma interface web para monitoramento em tempo real do t
 ## 📸 Demonstração
 
 <div align="center">
-    <img src="https://private-user-images.githubusercontent.com/80845484/454538754-99e9af68-0cb4-4a53-8fc7-5c9659756bbe.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDk3NTM3NzIsIm5iZiI6MTc0OTc1MzQ3MiwicGF0aCI6Ii84MDg0NTQ4NC80NTQ1Mzg3NTQtOTllOWFmNjgtMGNiNC00YTUzLThmYzctNWM5NjU5NzU2YmJlLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTA2MTIlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwNjEyVDE4Mzc1MlomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWI0NDFkM2FiYjM4MzhiOThjODFmZmU2YTkxNWJlYjZmZDZmNzgyMTJjM2Q1MDBhNjExMzkyNjY4MWIwZDM5Y2YmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.vsxZlIhZUzE3QjXTRwe_1TK3M11TBL26hLy-aEBpxKQ">
+    <img src="https://private-user-images.githubusercontent.com/80845484/454538754-99e9af68-0cb4-4a53-8fc7-5c9659756bbe.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDk3Nzg5NDMsIm5iZiI6MTc0OTc3ODY0MywicGF0aCI6Ii84MDg0NTQ4NC80NTQ1Mzg3NTQtOTllOWFmNjgtMGNiNC00YTUzLThmYzctNWM5NjU5NzU2YmJlLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTA2MTMlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwNjEzVDAxMzcyM1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTliODI5YjY3NjA2ODgzOWYyZTYwNzE0NWIwNzk0OTY1MmE0ZjAzOWYyYTFlYjU0NTNhOGMzOTY3ZmNmMGU4MDUmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.ZO5giM5xHnlUACTYLWfJjoAfqiiZZJ58whymSoC8W_4">
 </div>
 
 
@@ -112,6 +112,6 @@ Para te ajudar, aqui está um tutorial em vídeo que mostra o passo a passo da i
 ## 👤 Autores
 
 * **Geison de Oliveira Lemos Ferreira** - [JasonSX1](https://github.com/JasonSX1)
-* **Caroline dos Santos Feitosa** - [carolinesantosf](https://github.com/carolinesantosf)
+* **Caroline Feitosa dos Santos ** - [carolinesantosf](https://github.com/carolinesantosf)
 
 ---
