@@ -5,7 +5,7 @@ Este projeto consiste em uma interface web para monitoramento em tempo real do t
 ## 📸 Demonstração
 
 <div align="center">
-    <img src="https://private-user-images.githubusercontent.com/80845484/454538754-99e9af68-0cb4-4a53-8fc7-5c9659756bbe.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDk3Nzg5NDMsIm5iZiI6MTc0OTc3ODY0MywicGF0aCI6Ii84MDg0NTQ4NC80NTQ1Mzg3NTQtOTllOWFmNjgtMGNiNC00YTUzLThmYzctNWM5NjU5NzU2YmJlLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTA2MTMlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwNjEzVDAxMzcyM1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTliODI5YjY3NjA2ODgzOWYyZTYwNzE0NWIwNzk0OTY1MmE0ZjAzOWYyYTFlYjU0NTNhOGMzOTY3ZmNmMGU4MDUmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.ZO5giM5xHnlUACTYLWfJjoAfqiiZZJ58whymSoC8W_4">
+    <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/80845484/454538754-99e9af68-0cb4-4a53-8fc7-5c9659756bbe.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20250708%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250708T202846Z&X-Amz-Expires=300&X-Amz-Signature=47ac3e9b551a46bc17ef6b49a29908cf9fe686b79776be323cff64a336e5b14c&X-Amz-SignedHeaders=host">
 </div>
 
 
